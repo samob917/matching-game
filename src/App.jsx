@@ -11,7 +11,7 @@ function App() {
     const newScore = currentScore + 1
     setCurrentScore(newScore)
   }
-  
+
   function finishGame() {
     if (currentScore > bestScore) {
       setBestScore(currentScore)
@@ -21,12 +21,18 @@ function App() {
     }
   }
 
+  function reset() {
+    setCurrentScore(0)
+    setBestScore(0)
+  }
+
   return (
     <>
       <h1>Hello World</h1>
       <Scoreboard currentScore={currentScore} bestScore={bestScore} />
       <button onClick={increaseCurrent}>Correct</button>
       <button onClick={finishGame}>Incorrect</button>
+      <button onClick={reset}>Reset</button>
     </>
   )
 }
