@@ -1,0 +1,8 @@
+.card {
+    border: solid 2px white;
+    border-radius: 5%;
+}
+
+.card img {
+    border: solid white 2px;
+}

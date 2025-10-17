@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import "./Card.css"
 
 export default function Card({id, url}) {
     const [data, setData] = useState(null)
@@ -28,8 +29,9 @@ export default function Card({id, url}) {
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error {error.message}</div>
     return (
-        <div>
-            <img src={data.sprites.front_default} alt={data.name} />
+        <div className="card">
+            <img className="card-img" src={data.sprites.front_default} alt={data.name} />
+            <h2>{data.name}</h2>
         </div>
     )
 }
