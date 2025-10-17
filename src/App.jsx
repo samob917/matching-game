@@ -7,6 +7,7 @@ import Gameboard from './components/gameboard'
 function App() {
   const [currentScore, setCurrentScore] = useState(0)
   const [bestScore, setBestScore] = useState(0)
+  const [clickedCards, setClickedCards] = useState([])
   const [cardOrder, setCardOrder] = useState([0,1,2,3,4,5,6,7,8,9,10,11])
   const urlList = [
     "https://pokeapi.co/api/v2/pokemon/ditto",
@@ -49,13 +50,22 @@ function App() {
     return arr.sort(() => Math.random() - 0.5);
   }
 
+  function handleCardClick(e) {
+    const id = e.target.id
+    if (clickedCards.includes(id)) {
+      finishGame()
+      setClickedCards([])
+    } else {
+      increaseCurrent()
+      setClickedCards([...clickedCards, id])
+    }
+  }
+
   return (
     <>
-      <h1>Hello World</h1>
+      <h1>Pokemon Match Game</h1>
       <Scoreboard currentScore={currentScore} bestScore={bestScore} />
-      <Gameboard cardOrder={cardOrder} urlList={urlList}/>
-      <button onClick={increaseCurrent}>Correct</button>
-      <button onClick={finishGame}>Incorrect</button>
+      <Gameboard cardOrder={cardOrder} urlList={urlList} onClick={handleCardClick}/>
       <button onClick={reset}>Reset</button>
     </>
   )
