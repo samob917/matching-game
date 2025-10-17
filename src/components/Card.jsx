@@ -24,7 +24,7 @@ export default function Card({id, url, onClick}) {
             }
         }
         fetchImage()
-    }, [])
+    }, [url])
     console.log(data)
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error {error.message}</div>

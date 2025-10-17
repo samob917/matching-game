@@ -1,4 +1,4 @@
-import Card from "./card"
+import Card from "./Card"
 import "./Gameboard.css"
 
 export default function Gameboard({cardOrder, urlList, onClick}) {
