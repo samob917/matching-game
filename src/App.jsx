@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
-import Scoreboard from './components/scoreboard'
-import Gameboard from './components/gameboard'
+import Scoreboard from './../components/Scoreboard'
+import Gameboard from './../components/Gameboard'
 
 
 function App() {
